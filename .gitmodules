@@ -1,0 +1,6 @@
+[submodule "dispersy"]
+	path = dispersy
+	url = https://github.com/Tribler/dispersy
+[submodule "com/dispersy"]
+	path = com/dispersy
+	url = git@github.com:Jumba/dispersy.git
