@@ -1,10 +1,16 @@
 from twisted.internet import reactor
+
+import sys
+
 from com.dispersy.dispersy import Dispersy
 from com.dispersy.endpoint import StandaloneEndpoint
 from com.community import ExampleCommunity
 import logging
+import time
 
-logging.basicConfig()
+logging.basicConfig(level=logging.DEBUG, filename="logfile", filemode="a+",
+                        format="%(asctime)-15s %(levelname)-8s %(message)s")
+
 
 def main():
     reactor.exitCode = 0
@@ -21,8 +27,8 @@ def main():
     master_member = dispersy.get_member(public_key=master_key)
 
     community = ExampleCommunity.init_community(dispersy, master_member, my_member)
-
     exit(reactor.exitCode)
 
 if __name__ == "__main__":
     main()
+

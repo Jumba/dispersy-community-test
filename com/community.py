@@ -29,6 +29,7 @@ class ExampleCommunity(Community):
     def initialize(self):
         super(ExampleCommunity, self).initialize()
         logger.info("Example community initialized")
+        self.send_example("100", 100)
 
     def initiate_meta_messages(self):
         return super(ExampleCommunity, self).initiate_meta_messages() + [
@@ -58,7 +59,7 @@ class ExampleCommunity(Community):
         meta = self.get_meta_message(u"example")
         message = meta.impl(authentication=(self.my_member,),
                             distribution=(self.claim_global_time(),),
-                            payload=((text, amount),))
+                            payload=(text, amount,))
         self.dispersy.store_update_forward([message], store, update, forward)
 
     def on_example(self, messages):

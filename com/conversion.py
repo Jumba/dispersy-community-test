@@ -23,9 +23,9 @@ class ExampleConversion(BinaryConversion):
             raise DropPacket("Invalid payload type")
 
         text, amount = payload
-        if not isinstance(text, string):
+        if not isinstance(text, str):
             raise DropPacket("Invalid 'text' type")
-        if not isinstance(amount, integer):
+        if not isinstance(amount, int):
             raise DropPacket("Invalid 'amount' type")
 
         return offset, placeholder.meta.payload.implement(text, amount)
