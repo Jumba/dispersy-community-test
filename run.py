@@ -24,11 +24,6 @@ def start_dispersy():
 
     community = ExampleCommunity.init_community(dispersy, master_member, my_member)
 
-    def f():
-        community.send_example("Test", 100)
-
-    c = LoopingCall(f)
-    c.start(1.0)
 
 def main():
     reactor.callWhenRunning(start_dispersy)
